@@ -28,7 +28,6 @@ public class ResultController {
         // debug every value in chociedto
         System.out.println("CHOICE TEXT: " + choiceDTO.getChoice());
         System.out.println("SCORE: " + choiceDTO.getScore());
-        System.out.println("USERNAME: " + choiceDTO.getUsername());
 
         return choiceService.save(choiceDTO);
     }
