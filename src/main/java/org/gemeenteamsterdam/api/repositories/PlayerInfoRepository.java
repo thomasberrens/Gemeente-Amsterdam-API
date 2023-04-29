@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PlayerInfoRepository extends JpaRepository<PlayerInfo, Long> {
     PlayerInfo findByUuid(String uuid);
+    void deleteByUuid(String uuid);
 }

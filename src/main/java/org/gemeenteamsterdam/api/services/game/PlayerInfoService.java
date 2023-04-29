@@ -40,6 +40,10 @@ public class PlayerInfoService {
         return gameInfoService.save(gameInfo);
     }
 
+    public void deletePlayerInfo(String uuid) {
+        playerInfoRepository.deleteByUuid(uuid);
+    }
+
     public PlayerInfo getPlayerInfo(String uuid) {
         return playerInfoRepository.findByUuid(uuid);
     }
