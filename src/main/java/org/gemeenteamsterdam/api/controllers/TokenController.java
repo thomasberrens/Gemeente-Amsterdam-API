@@ -38,7 +38,6 @@ public class TokenController {
     @GetMapping("/refresh")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        System.out.println("Starting refresh token trip");
         // TODO Use constant
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             try {

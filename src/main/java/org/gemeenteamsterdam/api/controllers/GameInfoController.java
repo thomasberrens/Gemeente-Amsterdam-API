@@ -38,13 +38,6 @@ public class GameInfoController {
 
     @PostMapping("/add/choice")
     public void addChoice(@RequestBody ChoiceDTO choiceDTO) {
-
-        System.out.println("Game iD: " + choiceDTO.getGameID());
-        System.out.println("Choice: " + choiceDTO.getChoice());
-        System.out.println("Scenario: " + choiceDTO.getScenario());
-
-
         choiceService.save(choiceDTO);
-       // gameInfoService.addChoice(choice.getGameID(), choice);
     }
 }

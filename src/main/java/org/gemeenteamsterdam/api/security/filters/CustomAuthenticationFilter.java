@@ -33,8 +33,6 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         // TODO Use constant
 
-        System.out.println("Checking parametermap");
-
         final String username = request.getParameter("username");
         // TODO Use constant
         final String password = request.getParameter("password");
@@ -47,7 +45,6 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
         final User user = (User) authentication.getPrincipal();
 
-    
 
         // TODO Save encrypted version of secret somewhere secure, load and decrypt (encrypted) secret, use it here
         // TODO DUPLICATE, USE CONSTANT / UTIL CLASS. ENSURE SAME SECRET

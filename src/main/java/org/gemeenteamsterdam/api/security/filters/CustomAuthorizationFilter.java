@@ -26,12 +26,8 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // TODO Use constant
         if (request.getServletPath().equals("/login") || request.getServletPath().equals("/token/refresh")) {
-
-            System.out.println("HALLLLLLOOOOO LOGIN AND REFRESH");
             filterChain.doFilter(request, response);
         } else {
-
-            System.out.println("HALLLLLLOOOOO");
 
             final String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
             // TODO Use constant

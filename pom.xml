@@ -28,7 +28,6 @@
         <spring.datasource.url>jdbc:mariadb://192.168.178.158:3306/amsterdam_api_dev</spring.datasource.url>
         <spring.datasource.username>development</spring.datasource.username>
         <spring.datasource.password>development</spring.datasource.password>
-        <spring.data.mongodb.uri>mongodb://192.168.178.158:27017/amsterdam_api_dev</spring.data.mongodb.uri>
       </properties>
     </profile>
     <profile>
@@ -94,11 +93,6 @@
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
       <version>3.19.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
   </dependencies>
 

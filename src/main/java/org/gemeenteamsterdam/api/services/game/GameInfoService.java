@@ -33,8 +33,6 @@ public class GameInfoService {
     }
 
     public GameInfo addChoice(String gameID, Choice newChoice) {
-
-        System.out.println("Game iD: " + gameID);
         final GameInfo gameInfo = getGameInfo(gameID);
 
 

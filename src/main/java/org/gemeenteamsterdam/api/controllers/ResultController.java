@@ -23,12 +23,6 @@ public class ResultController {
 
     @PostMapping("/choice")
     public Choice postChoice(@RequestBody ChoiceDTO choiceDTO) {
-        System.out.println("HALLO POSTING CHOICE");
-
-        // debug every value in chociedto
-        System.out.println("CHOICE TEXT: " + choiceDTO.getChoice());
-        System.out.println("SCORE: " + choiceDTO.getScore());
-
         return choiceService.save(choiceDTO);
     }
 
