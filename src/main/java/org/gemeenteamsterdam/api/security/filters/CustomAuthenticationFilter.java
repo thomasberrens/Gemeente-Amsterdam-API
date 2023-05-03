@@ -47,7 +47,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
         final User user = (User) authentication.getPrincipal();
 
-        System.out.println("zijn we hier ondertussen?");
+    
 
         // TODO Save encrypted version of secret somewhere secure, load and decrypt (encrypted) secret, use it here
         // TODO DUPLICATE, USE CONSTANT / UTIL CLASS. ENSURE SAME SECRET
