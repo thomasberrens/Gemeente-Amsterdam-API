@@ -5,6 +5,7 @@ import org.gemeenteamsterdam.api.dto.PlayerInfoDTO;
 import org.gemeenteamsterdam.api.entities.GameInfo;
 import org.gemeenteamsterdam.api.entities.PlayerInfo;
 import org.gemeenteamsterdam.api.services.game.PlayerInfoService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,16 +27,19 @@ public class PlayerInfoController {
     }
 
     @GetMapping("/get/{uuid}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public PlayerInfo getPlayerInfo(@PathVariable String uuid) {
         return playerInfoService.getPlayerInfo(uuid);
     }
 
     @GetMapping("/get/all")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Iterable<PlayerInfo> getAllPlayerInfo() {
         return playerInfoService.getAllPlayerInfo();
     }
 
     @PutMapping("/update/{uuid}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public PlayerInfo updatePlayerInfo(@PathVariable String uuid, @RequestBody PlayerInfoDTO playerInfoDTO) {
         final PlayerInfo playerInfo = playerInfoService.getPlayerInfo(uuid);
         playerInfo.setUsername(playerInfoDTO.getUsername());
@@ -44,6 +48,7 @@ public class PlayerInfoController {
 
     @Transactional
     @DeleteMapping("/delete/{uuid}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deletePlayerInfo(@PathVariable String uuid) {
         playerInfoService.deletePlayerInfo(uuid);
     }
