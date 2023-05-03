@@ -38,6 +38,7 @@ public class SecurityConfig {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000")
                         .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .exposedHeaders("Content-Disposition");
             }
         };
@@ -64,6 +65,14 @@ public class SecurityConfig {
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/token/refresh/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/login").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/login/**").permitAll();
+
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/gameinfo/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/gameinfo/**").permitAll();
+
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/playerinfo/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/playerinfo/**").permitAll();
+
+       // http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/**").permitAll();
 
 
         http.authorizeRequests().anyRequest().authenticated();
