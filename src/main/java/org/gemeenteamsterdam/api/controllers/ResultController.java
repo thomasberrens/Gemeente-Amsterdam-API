@@ -21,16 +21,4 @@ public class ResultController {
     public Choice postChoice(@RequestBody ChoiceDTO choiceDTO) {
         return choiceService.save(choiceDTO);
     }
-
-    @GetMapping("/choice/all/users")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public HashMap<String, List<Choice>> getAllChoicesByUsers() {
-        return choiceService.findAllByUsers();
-    }
-
-    @GetMapping("/choice/all")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public Iterable<Choice> getAllChoices() {
-        return choiceService.findAll();
-    }
 }
