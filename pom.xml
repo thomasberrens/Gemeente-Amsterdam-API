@@ -13,7 +13,7 @@
   <name>GemeenteAmsterdamAPI</name>
   <description>GemeenteAmsterdamAPI</description>
   <properties>
-    <java.version>19</java.version>
+    <java.version>17</java.version>
   </properties>
 
   <profiles>
@@ -25,7 +25,7 @@
       <properties>
         <spring.jpa.hibernate.ddl-auto>create-drop</spring.jpa.hibernate.ddl-auto>
         <spring.profiles.active>dev</spring.profiles.active>
-        <spring.datasource.url>jdbc:mariadb://192.168.178.235:3306/amsterdam_api_dev</spring.datasource.url>
+        <spring.datasource.url>jdbc:mariadb://gemeente-amsterdam-db.mysql.database.azure.com/amsterdam_api_local?sslMode=REQUIRED</spring.datasource.url>
         <spring.datasource.username>development</spring.datasource.username>
         <spring.datasource.password>XSHzbrgQM44S</spring.datasource.password>
       </properties>
@@ -101,6 +101,15 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>
