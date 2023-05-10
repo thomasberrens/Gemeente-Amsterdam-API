@@ -27,19 +27,19 @@ public class PlayerInfoController {
     }
 
     @GetMapping("/get/{uuid}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     public PlayerInfo getPlayerInfo(@PathVariable String uuid) {
         return playerInfoService.getPlayerInfo(uuid);
     }
 
     @GetMapping("/get/all")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     public Iterable<PlayerInfo> getAllPlayerInfo() {
         return playerInfoService.getAllPlayerInfo();
     }
 
     @PutMapping("/update/{uuid}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     public PlayerInfo updatePlayerInfo(@PathVariable String uuid, @RequestBody PlayerInfoDTO playerInfoDTO) {
         final PlayerInfo playerInfo = playerInfoService.getPlayerInfo(uuid);
         playerInfo.setUsername(playerInfoDTO.getUsername());
@@ -48,7 +48,7 @@ public class PlayerInfoController {
 
     @Transactional
     @DeleteMapping("/delete/{uuid}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     public void deletePlayerInfo(@PathVariable String uuid) {
         playerInfoService.deletePlayerInfo(uuid);
     }

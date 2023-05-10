@@ -25,9 +25,9 @@
       <properties>
         <spring.jpa.hibernate.ddl-auto>create-drop</spring.jpa.hibernate.ddl-auto>
         <spring.profiles.active>dev</spring.profiles.active>
-        <spring.datasource.url>jdbc:mariadb://192.168.178.158:3306/amsterdam_api_dev</spring.datasource.url>
+        <spring.datasource.url>jdbc:mariadb://192.168.178.235:3306/amsterdam_api_dev</spring.datasource.url>
         <spring.datasource.username>development</spring.datasource.username>
-        <spring.datasource.password>development</spring.datasource.password>
+        <spring.datasource.password>XSHzbrgQM44S</spring.datasource.password>
       </properties>
     </profile>
     <profile>

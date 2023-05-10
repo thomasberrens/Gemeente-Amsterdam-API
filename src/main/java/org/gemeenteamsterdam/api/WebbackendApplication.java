@@ -27,7 +27,7 @@ public class WebbackendApplication {
 		return args -> {
 			userService.createUser(new CreateAccountDTO("thomas.berrens@me.com", "pass", "thomasberrens"));
 
-			userService.addRoleToUser("thomas.berrens@me.com", Role.ADMIN.getName());
+			userService.addRoleToUser("thomas.berrens@me.com", "ROLE_ADMIN");
 		};
 	}
 }
