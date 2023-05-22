@@ -52,13 +52,7 @@ public class WebbackendApplication {
 	CommandLineRunner initializeValuesForDatabase(UserServiceImpl userService, ApplicationConfig applicationConfig) {
 		return args -> {
 			userService.createUser(new CreateAccountDTO(applicationConfig.getAdminEmail(), applicationConfig.getAdminPassword(), "admin"));
-
-
-
 			userService.addRoleToUser(applicationConfig.getAdminEmail(), "ROLE_ADMIN");
-
-			System.out.println("APPLICATION CONFIG: " + applicationConfig);
-
 		};
 	}
 }
