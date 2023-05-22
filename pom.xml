@@ -22,13 +22,6 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
-      <properties>
-        <spring.jpa.hibernate.ddl-auto>create-drop</spring.jpa.hibernate.ddl-auto>
-        <spring.profiles.active>dev</spring.profiles.active>
-        <spring.datasource.url>jdbc:mariadb://gemeente-amsterdam-db.mysql.database.azure.com/amsterdam_api_local?sslMode=REQUIRED</spring.datasource.url>
-        <spring.datasource.username>development</spring.datasource.username>
-        <spring.datasource.password>XSHzbrgQM44S</spring.datasource.password>
-      </properties>
     </profile>
     <profile>
       <id>prod</id>
@@ -36,8 +29,6 @@
         <activeByDefault>false</activeByDefault>
       </activation>
       <properties>
-        <spring.jpa.hibernate.ddl-auto>update</spring.jpa.hibernate.ddl-auto>
-        <spring.profiles.active>prod</spring.profiles.active>
       </properties>
     </profile>
   </profiles>
@@ -67,6 +58,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>

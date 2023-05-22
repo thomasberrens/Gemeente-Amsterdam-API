@@ -16,6 +16,7 @@ D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\ent
 D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\entities\PlayerInfo.java
 D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\entities\User.java
 D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\services\choice\ChoiceService.java
+D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\ApplicationConfig.java
 D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\dto\ChoiceDTO.java
 D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\security\filters\response\ErrorResponseBuilder.java
 D:\IdeaProjects\GemeenteAmsterdamAPI\src\main\java\org\gemeenteamsterdam\api\security\SecurityConfig.java
