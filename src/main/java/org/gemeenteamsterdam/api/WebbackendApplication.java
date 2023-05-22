@@ -10,10 +10,36 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.io.*;
+
 @SpringBootApplication
 public class WebbackendApplication {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+
+		final File configFile = new File("config/application.properties");
+
+		if (!configFile.exists()) generateConfigFile(configFile);
+
 		SpringApplication.run(WebbackendApplication.class, args);
+	}
+
+	private static void generateConfigFile(final File file) throws IOException {
+		file.getParentFile().mkdirs();
+
+		try (
+				InputStream inputStream = Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream("application.properties");
+				BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+				OutputStream outputStream = new FileOutputStream(file)
+		) {
+			byte[] buffer = new byte[1024];
+			int bytesRead;
+			while ((bytesRead = bufferedInputStream.read(buffer)) != -1) {
+				outputStream.write(buffer, 0, bytesRead);
+			}
+		}
+
+
 	}
 
 	@Bean
@@ -22,12 +48,17 @@ public class WebbackendApplication {
 	}
 
 	@Bean
-	@Profile({"local", "dev"})
-	CommandLineRunner initializeValuesForLocalDatabase(UserServiceImpl userService) {
+	@Profile({"local", "dev", "prod", "default"})
+	CommandLineRunner initializeValuesForDatabase(UserServiceImpl userService, ApplicationConfig applicationConfig) {
 		return args -> {
-			userService.createUser(new CreateAccountDTO("thomas.berrens@me.com", "pass", "thomasberrens"));
+			userService.createUser(new CreateAccountDTO(applicationConfig.getAdminEmail(), applicationConfig.getAdminPassword(), "admin"));
 
-			userService.addRoleToUser("thomas.berrens@me.com", "ROLE_ADMIN");
+
+
+			userService.addRoleToUser(applicationConfig.getAdminEmail(), "ROLE_ADMIN");
+
+			System.out.println("APPLICATION CONFIG: " + applicationConfig);
+
 		};
 	}
 }
